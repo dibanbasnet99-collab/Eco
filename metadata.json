@@ -1,0 +1,6 @@
+{
+  "name": "Eco Sathi Nepal",
+  "description": "Nepal's 1st Zero Waste Store & Refill Station at Babar Mahal Revisited, Kathmandu. Shop personalized bamboo essentials and pay-by-weight refills.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

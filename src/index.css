@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-devanagari: "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif;
+  --color-cream: #F7F4EB;
+  --color-sand: #EFECE2;
+  --color-moss: #2D4A3E;
+  --color-sage: #6E8B74;
+  --color-terracotta: #B87D4B;
+  --color-bark: #1E2420;
+  --color-muted: #5A635D;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F7F4EB;
+    color: #1E2420;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bottom-to-top organic forest-green liquid fill hover effect */
+.btn-liquid {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+
+.btn-liquid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #2D4A3E;
+  transform: translateY(102%);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.btn-liquid:hover::before,
+.btn-liquid:focus-visible::before {
+  transform: translateY(0%);
+}
+
+.btn-liquid:hover,
+.btn-liquid:focus-visible {
+  color: #F7F4EB;
+  border-color: #2D4A3E;
+}
+
+/* Primary moss button with darker forest liquid rise */
+.btn-liquid-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #2D4A3E;
+  color: #F7F4EB;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+}
+
+.btn-liquid-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #1E352B;
+  transform: translateY(102%);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.btn-liquid-primary:hover::before,
+.btn-liquid-primary:focus-visible::before {
+  transform: translateY(0%);
+}
+
+/* Marquee Ticker */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Tactile card lift */
+.tactile-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tactile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -14px rgba(45, 74, 62, 0.14);
+}
+
+/* Custom range slider for Refill Estimator */
+input[type="range"].eco-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #DFD9C8;
+  outline: none;
+}
+
+input[type="range"].eco-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2D4A3E;
+  border: 3px solid #F7F4EB;
+  box-shadow: 0 2px 8px rgba(30, 36, 32, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].eco-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"].eco-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2D4A3E;
+  border: 3px solid #F7F4EB;
+  box-shadow: 0 2px 8px rgba(30, 36, 32, 0.25);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  .btn-liquid::before,
+  .btn-liquid-primary::before,
+  .tactile-card {
+    transition: none;
+  }
+}
